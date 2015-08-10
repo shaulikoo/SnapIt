@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<center>
+    <% include templates/header.ejs %>
+</center>
+<h1><%= title %></h1>
+<h2>
+<script type="text/javascript">
+    function Redirect() {
+        window.location="/camera/p";
+    }
+    document.write("The Camera take the picture, wait for "+<%=time%>+" sec.");
+    setTimeout('Redirect()', <%=time*1000%>);
+</script>
+</h2>
+</body>
+</html>
