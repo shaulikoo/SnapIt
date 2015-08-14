@@ -6,8 +6,8 @@ var ok;
 
 /* GET camera page. */
 router.get('/', function(req, res, next){
-    ok=camera.pico();
-    res.render('wait',{title: 'SnapIt', time: '1'});
+    ok=camera.pics();
+    res.render('wait',{title: 'SnapIt', time: '3'});
 });
 
 router.get('/p', function(req, res, next){
