@@ -23,7 +23,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('passIn'));
-app.use(session());
+app.use(session({
+  secret: 'passIn',
+  resave : true,
+  saveUninitialized: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res, next){
   var err = req.session.error
