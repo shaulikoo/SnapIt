@@ -6,20 +6,23 @@ var ok;
 
 /* GET camera page. */
 router.get('/', function(req, res, next){
-    ok=camera.pics();
+    ok=camera.pico();
     res.render('wait',{title: 'SnapIt-Hw', time: '4'});
 });
 
 router.get('/p', function(req, res, next){
     if (ok==1) {
         var image="/images/1.jpg"
-        res.render('index',{title: 'SnapIt-Hw', body: 'The Photo', ender: "This page control the camera",image: image});
+        res.render('index',{title: 'SnapIt-Hw', body: 'The Photo', ender: "This page control the camera",image: image,download:true});
     }else{
-        res.render('index',{title: 'SnapIt-Hw', body: 'ERROR', ender: "This page control the camera",image: ""});
+        res.render('index',{title: 'SnapIt-Hw', body: 'ERROR', ender: "This page control the camera",image: "",download:false});
     }
     ok=0;
 });
 
-
+router.get('/download', function(req, res){
+    var file='C:/Users/shaul/WebstormProjects/SnapIt/public/images/1.jpg'
+    res.download(file); // Set disposition and send it.
+});
 
 module.exports = router;
