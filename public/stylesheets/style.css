@@ -21,22 +21,18 @@ div.imy img{
   border-radius: 10px;
 }
 div.imy a{
-  position: relative;
+  position: static;
   margin-left: 20%}
 
 div.container {
-  position: relative;
-  left: 35%;
+  margin-top: auto;
+  text-align: center;
 }
-div.container h1{
+div.container h3{
   position: relative;
-  left: 4%;
-  margin-top: 10%;
-  margin-bottom: 3%;
+  margin-right: 200px;
 }
 
 div.container input#button{
   position: relative;
-  left: 7%;
-  margin-top: 1%;
 }
