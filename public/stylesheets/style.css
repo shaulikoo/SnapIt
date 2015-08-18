@@ -1,8 +1,42 @@
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #c2dedd;
 }
 
-a {
-  color: #00B7FF;
+p {
+  color: #000000;
+}
+div.imy {
+  position: absolute;
+  left:30%
+}
+
+
+div.imy img{
+  width: 50%;
+  max-height: 50%;
+  border: solid;
+  border-radius: 10px;
+}
+div.imy a{
+  position: relative;
+  margin-left: 20%}
+
+div.container {
+  position: relative;
+  left: 35%;
+}
+div.container h1{
+  position: relative;
+  left: 4%;
+  margin-top: 10%;
+  margin-bottom: 3%;
+}
+
+div.container input#button{
+  position: relative;
+  left: 7%;
+  margin-top: 1%;
 }

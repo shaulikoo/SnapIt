@@ -13,9 +13,9 @@ router.get('/', function(req, res, next){
 router.get('/p', function(req, res, next){
     if (ok==1) {
         var image="/images/1.jpg"
-        res.render('index',{title: 'SnapIt-Hw', body: 'The Photo', ender: "This page control the camera",image: image,download:true});
+        res.render('index',{title: 'SnapIt-Hw', body: 'The Photo', ender: "This page control the camera",image: image});
     }else{
-        res.render('index',{title: 'SnapIt-Hw', body: 'ERROR', ender: "This page control the camera",image: "",download:false});
+        res.render('index',{title: 'SnapIt-Hw', body: 'ERROR', ender: "This page control the camera",image: ""});
     }
     ok=0;
 });

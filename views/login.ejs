@@ -2,11 +2,17 @@
 <html>
 <head>
 <title>SnapIt-HardWare Connection</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+        body{
+            background-color: #ccdec2;
+        }
+    </style>
 </head>
 <body>
-<center>
+<div  class="container">
 <h1>SnapIt-Hw</h1>
-</center>
+
     <h3>Login</h3>
 
 <form method="post" action="/login">
@@ -19,8 +25,9 @@
         <input type="password" name="password">
     </p>
     <p>
-        <input type="submit" value="Login">
+        <input id="button" type="submit" value="Login">
     </p>
 </form>
+</div>
 </body>
 </html>

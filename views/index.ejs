@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% include templates/header.ejs %>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-  <center>
-    <% include templates/header.ejs %>
-  </center>
     <h1><%= title %></h1>
     <p> <%= body %></p>
+    <div class="imy">
     <%if (image != ""){%>
-    <center>
-    <img src=<%=image%> style="width: 50% ;max-height: 50%" />
-    </center>
+      <img src=<%=image%> />
+      <p></p>
+      <a href='/camera/download'><input type="button" value="Download photo"/></a>
     <%}%>
-  <div>
-  <%if (download){%>
-    <center>
-  <a href='/camera/download'><input type="button" value="Download photo" style="text-align: center" /></a>
-  <%}%>
-    </center>
-  </div>
+    </div>
+
     <p><%= ender %></p>
   </body>
 </html>
