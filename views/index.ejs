@@ -15,9 +15,13 @@
     <img src=<%=image%> style="width: 50% ;max-height: 50%" />
     </center>
     <%}%>
+  <div>
   <%if (download){%>
-  <a href='/camera/download'>Download photo</a>
+    <center>
+  <a href='/camera/download'><input type="button" value="Download photo" style="text-align: center" /></a>
   <%}%>
+    </center>
+  </div>
     <p><%= ender %></p>
   </body>
 </html>

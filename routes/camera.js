@@ -7,7 +7,7 @@ var ok;
 /* GET camera page. */
 router.get('/', function(req, res, next){
     ok=camera.pico();
-    res.render('wait',{title: 'SnapIt-Hw', time: '4'});
+    res.render('wait',{title: 'SnapIt-Hw', time: '1'});
 });
 
 router.get('/p', function(req, res, next){
