@@ -9,6 +9,7 @@ var hash = require('./pass').hash;
 var routes = require('./routes/index');
 var camera = require('./routes/camera')
 var stepper = require('./routes/stepper')
+var cns = require('./routes/cns')
 var app = express();
 
 app.use(favicon(path.join(__dirname,'public','favicon.ico')));
@@ -103,6 +104,7 @@ app.post('/login', function(req, res){
 app.use('/home',restrict, routes);
 app.use('/camera',restrict, camera)
 app.use('/stepper',restrict,stepper)
+app.use('/cns',restrict,cns)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
