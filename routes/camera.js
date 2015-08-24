@@ -7,11 +7,11 @@ var ok;
 /* GET camera page. */
 router.get('/', function(req, res, next){
     ok = camera.one()
-    res.render('wait',{title: 'SnapIt-Hw', time: '4'});
+    res.render('wait',{title: 'SnapIt-Hw', time: '5'});
 });
 
 router.get('/p', function(req, res, next){
-    if (ok==1) {
+    if (ok != 0) {
         var image=ok
         res.render('index',{title: 'SnapIt-Hw', body: 'The Photo', ender: "This page control the camera",image: image});
     }else{
