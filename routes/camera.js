@@ -6,8 +6,9 @@ var ok;
 
 /* GET camera page. */
 router.get('/', function(req, res, next){
-    ok = camera.one()
+    ok = camera.value
     res.render('wait',{title: 'SnapIt-Hw', time: '5'});
+    console.log(ok)
 });
 
 router.get('/p', function(req, res, next){
