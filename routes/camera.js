@@ -6,13 +6,13 @@ var ok;
 
 /* GET camera page. */
 router.get('/', function(req, res, next){
-    ok=camera.pics();
-    res.render('wait',{title: 'SnapIt-Hw', time: '1'});
+    ok=camera.one_pic();
+    res.render('wait',{title: 'SnapIt-Hw', time: '4'});
 });
 
 router.get('/p', function(req, res, next){
     if (ok==1) {
-        var image="/images/1.jpg"
+        var image=ok
         res.render('index',{title: 'SnapIt-Hw', body: 'The Photo', ender: "This page control the camera",image: image});
     }else{
         res.render('index',{title: 'SnapIt-Hw', body: 'ERROR', ender: "This page control the camera",image: ""});
