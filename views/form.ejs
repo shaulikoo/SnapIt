@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SnapIt-HardWare Setup</title>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<div class="header_comp">
+    <% include templates/header.ejs %>
+</div>
+<div  class="login" style="margin-top:5px">
+    <h1>Setup</h1>
+
+    <form method="post" action="/camera/wait">
+        <table align="center">
+            <tr>
+                <td>
+            <b>Flash</b>
+                </td>
+                <td>Auto: <input type="radio" name="flash" value="on"></td>
+                <td>Red-eye: <input type="radio" name="flash" value="Red-eye" disabled="true"></td>
+                <td>Off: <input type="radio" name="flash" value="off" ></td>
+            </tr>
+            <tr>
+                <td><b>Nikon Flash mode(0-1)</b></td>
+                <td colspan="2"><input type="text" name="nfm" size="3" maxlength="2" value=<%=data.nfm%>></td>
+            </tr>
+            <tr>
+                <td><b>Hue adj. (-9 - 9 : 3) </b></td>
+                <td colspan="2"><input type="text" name="hue" size="3" maxlength="2" value=<%=data.hueadj%>></td>
+            </tr>
+            <tr>
+                <td><b>Focus Length (18 - 200 : 0.01) </b></td>
+                <td colspan="2"><input type="text" name="foc_lan" size="3" maxlength="2" value=<%=data.foc_len%>></td>
+            </tr>
+            <tr>
+                <td><b>Shutter speed (0 - 8)</b></td>
+                <td colspan="2"><input type="text" name="shutter" size="3" maxlength="2" value=<%=data.shutter%>></td>
+            </tr>
+            <tr>
+                <td><b>Image size (0 - 2)</b></td>
+                <td colspan="2"><input type="text" name="imsize" size="5" maxlength="2" value=<%=data.imsize%>></td>
+            </tr>
+            <tr>
+                <td><b>Auto Focus area(0:center,1:top,2:bottom)</b></td>
+                <td colspan="2"><input type="text" name="afocus" size="5" maxlength="2" value=<%=data.afocus%>></td>
+            </tr>
+            <tr>
+                <td><b>Focus Meter mode (0 - 2)</b></td>
+                <td colspan="2"><input type="text" name="mfocus" size="5" maxlength="2" value=<%=data.mfocus%>></td>
+            </tr>
+            <tr>
+                <td><b>Exposure composition ( 0:-5k - 30:5k )</b></td>
+                <td colspan="2"><input type="text" name="exp_comp" size="5" maxlength="2" value=<%=data.exp_comp%>></td>
+            </tr>
+            <tr>
+                <td><b>White balance (0 - 7)</b></td>
+                <td colspan="2"><input type="text" name="whitebalance" size="5" maxlength="2" value=<%=data.whitebalance%>></td>
+            </tr>
+            <tr>
+                <td><b>Saturation (0 - 2)</b></td>
+                <td colspan="2"><input type="text" name="saturation" size="5" maxlength="2" value=<%=data.saturation%>></td>
+            </tr>
+            <tr>
+                <td><b>Focal length</b></td>
+                <td colspan="2"><%=data.foc_len%></td>
+            </tr>
+            <tr>
+                <td><b>Noise Reduction (0 - 1)</b></td>
+                <td colspan="2"><input type="text" name="noisereduction" size="5" maxlength="2" value=<%=data.noisereduction%>></td>
+            </tr>
+            <tr>
+                <td><b>Capture Mode (0 - 2)</b></td>
+                <td colspan="2"><input type="text" name="capturemode" size="5" maxlength="2" value=<%=data.capturemode%>></td>
+            </tr>
+            <tr>
+                <td><b>Minimum Shutter Speed(0-7)</b></td>
+                <td colspan="2"><input type="text" name="minshut" size="5" maxlength="2" value=<%=data.minshut%>></td>
+            </tr>
+            <tr>
+                <td><b>f-number(0 - 16)</b></td>
+                <td colspan="2"><input type="text" name="f_number" size="5" maxlength="2" value=<%=data.f_number%>></td>
+            </tr>
+            <tr>
+                <td><b>ISO (0 - 5)</b></td>
+                <td colspan="2"><input type="text" name="ISO" size="5" maxlength="2" value=<%=data.ISO%>></td>
+            </tr>
+            <tr>
+                <td><b>Exposure Meter mode (0 - 2)</b></td>
+                <td colspan="2"><input type="text" name="expmm" size="5" maxlength="2" value=<%=data.expmm%>></td>
+            </tr>
+        </table>
+        <p>
+            <input id="button" type="submit" value="Preview">
+        </p>
+    </form>
+</div>
+</body>
+</html>

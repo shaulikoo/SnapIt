@@ -1,38 +1,167 @@
 
+html {
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
-  padding: 50px;
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #c2dedd;
+    background-image: url('/gif/page_bg.png') ;
+    margin: 0px;
+    font-family: Arial;
+    font-size: 16px;
 }
 
 p {
-  color: #000000;
+    color: #000000;
 }
-div.imy {
-  position: absolute;
-  left:30%
+/*Header style*/
+div.header_comp{
+    background-image: url("/gif/head_bg.jpg");
+    color: cornflowerblue;
+    padding-top: 20px;
+    border-bottom: solid black 1px;
+
 }
 
+div.header_comp hr{
+    margin-bottom: 0px;
+}
+
+div.header{
+    margin-left: 43%;
+    padding-bottom: 20px;
+}
+div.header span#logout {
+    position: relative;
+    float: right;
+    padding-right: 20px;
+    margin-top: -2%;
+}
+
+
+
+div.header span#logout a {
+    color: rgba(255, 254, 218, 0.78);
+    text-decoration: none;
+}
+
+div.header span#logout a:hover {
+    background-color: #ffffff;
+}
+div.header span#logout  a:active{
+    background-color: red;
+}
+div.home_b {
+    position: inherit;
+    margin-left: 55px;
+}
+
+div.header hr{
+    line-break: 0px;
+}
+
+div#logo {
+    margin: -30px;
+    padding: 0px;
+    height: 6em;
+    margin-left: 40px;
+    width: 300px;
+    float: left;
+}
+div#logo h1{
+    color : white;
+    font-weight: 600;
+    font-size: 46px;
+}
+div#logo h1:first-letter{
+    color : white;
+    font-weight: 700;
+    font-size: 56px;
+}
+
+
+
+/*Index Style*/
+div.index{
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+div.index h1:first-letter{
+    font-size: larger;
+}
+
+
+
+/*Preview Style*/
+div.imy {
+    position: absolute;
+    margin-left: 32%;
+    width: auto;
+    text-align: center;
+    margin-top:10px;
+    }
 
 div.imy img{
-  width: 50%;
-  max-height: 50%;
-  border: solid;
-  border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    border: solid;
+    border-radius: 10px;
 }
-div.imy a{
-  position: static;
-  margin-left: 20%}
-
-div.container {
-  margin-top: auto;
-  text-align: center;
-}
-div.container h3{
-  position: relative;
-  margin-right: 200px;
+div.imy input#button {
+    position: relative;
 }
 
-div.container input#button{
-  position: relative;
+div.ender p {
+    position: relative;
+    float: right;
+    margin-top: 350px;
+    font-size: 13px;
+    width: auto;
+}
+
+
+/*Login Style*/
+div.login {
+    margin-top: 10%;
+    text-align: center;
+}
+
+div.login h3 {
+    position: relative;
+    margin-right: 200px;
+}
+
+div.login h3:first-letter , h1:first-letter{
+    font-size: larger;
+
+}
+
+div.login input#button {
+    position: relative;
+}
+
+/*Cns Style*/
+div.im img {
+    height: 200px;
+    alignment: left;
+    border: solid 3px black;
+    border-radius: 10px;
+}
+
+.center {
+    text-align: center;
+}
+div.wait_cns h1{
+    position: relative;
+    margin-top: 150px;
+    text-align: center;
+}
+div.wait_cns img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
 }

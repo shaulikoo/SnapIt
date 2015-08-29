@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+    <div class="header_comp">
     <% include templates/header.ejs %>
+    </div>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p> <%= body %></p>
-    <div class="imy">
-    <%if (image != ""){%>
-      <img src=<%=image%> />
-      <p></p>
-      <a href='/camera/download'><input type="button" value="Download photo"/></a>
-    <%}%>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css'/>
+</head>
+<body>
+
+<div class="index">
+<h2><%= title %></h2>
+<%if (body ==1) {%>
+<p style="margin-top:40px;">Press a preview to take first shut </p>
+<p style="margin-top:20px;">Adjust the Camera properties and Preview again </p>
+<p style="margin-top:20px;">Send a full session click n' shoot</p>
+<%}else{%>
+    <p> There's been a Problem </p><p> Check Camera connection and try again </p>
+<%}%>
+
+<div class="imy">
+<div id="chan">
+</div>
+</div>
+</div>
+<div class="ender">
+<p><%= ender %></p>
     </div>
 
-    <p><%= ender %></p>
-  </body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!--<script src="/socket.io/socket.io.js"></script>
+<script>
+    jQuery(function ($)
+    {
+        var socket = io.connect();
+        var $ready = $('#chan');
+        function socketing(cb){socket.on('finish-pics', function (ok) {
+                $ready.append('<img src="' + ok + '"/>');
+                $ready.append('<p></p>');
+                $ready.append( '<a href="/camera/download"><input type="button" value="Download photo"/></a>');
+                cb()
+                })}
+        socketing(function(){
+            socket.disconnect();
+        })
+            })
+</script>-->
+</body>
 </html>

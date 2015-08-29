@@ -1,15 +1,101 @@
-<style>
-.place{
-    text-align: center;
-}
-</style>
+<link rel='stylesheet' type="text/css" href='/stylesheets/style.css'/>
 
-<a href="/logout" style="float: right;">Logout</a>
-<div class="place">
-<a href="/home"><input type="button" id="home" value="Home" style="margin-left: 35px"/></a>
-<p>   </p>
-<a href="/camera"><input type="button" value="Camera"/></a>
-<a href="/camera/p"><input type="button" value="No Camera"/></a>
-<a href="/cns"><input type="button" value="Click And Shoot"/></a>
-<p>   </p>
+
+<div id="logo">
+  <h1>  SnapIt - HW </h1>
 </div>
+<div class="header">
+<span id="logout"><a href="/logout"  onclick="myFunction(); return false" >Logout</a> <b>/</b>
+<a href="/shutdown"  onclick="shut(); return false">Shutdown</a><br />
+    <table style="color: rgba(255, 254, 218, 0.78); margin-top: 10px">
+        <tr>
+            <td>Status:</td>
+            <td>
+                <img id="green_status" src="/gif/green.png" width="15px" style="display: none" title="OK"/>
+                <img id="red_status" src="/gif/red.png" width="15px" style="display: none" title="Check Camera"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Free-Space:</td>
+            <td>
+        <img id="green_space" src="/gif/green.png" width="15px" style="display: none" title="<%=cam_info.freeimg%> Images"/>
+        <img id="red_space" src="/gif/red.png" width="15px" style="display: none" title="<%=cam_info.freeimg%> Images"/>
+            </td>
+        </tr>
+    </table>
+</span>
+<div class="home_b">
+    <p><a href="/home" title="Home"><input id="home" type="button"  value="Home"/></a></p></div>
+<a href="/camera" title="One Shot"><input id="preview" type="button" value="Preview"/></a>
+<a href="/cns" title="Full session"><input id="cns" type="button" value="Click And Shoot"/></a> <br />
+</div>
+<hr />
+<script>
+    function myFunction() {
+        var r = confirm("Sure? It will del Photos!");
+        if (r){
+            document.location.href ="/logout";
+        }
+    }
+    function shut() {
+        var r = confirm("Sure? It will Shut the pi!");
+        if (r){
+            document.location.href ="/shutdown";
+        }
+    }
+</script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+    jQuery(function ($){
+        var $space = <%=cam_info.freeimg%>;
+        var $home = $('#home');
+        var $preview = $('#preview')
+        var $cns = $('#cns')
+        var $green = $('#green_space')
+        var $red = $('#red_space')
+        var $status_green = $('#green_status')
+        var $status_red = $('#red_status')
+        var stringPathName = window.location.pathname
+
+        if (stringPathName != '/home'){
+            $status_green.show()
+        }
+
+        if (stringPathName == '/home'){
+            var $body = <%=body%>
+            if ($body == 1) {
+                $space = <%=cam_info.freeimg%>;
+                $status_green.show()
+            }
+            if ($body == 0){
+                $red.attr("title", "UnAvailable");
+                $space = 0;
+                $status_red.show();
+                $preview.attr("disabled", true);
+                $cns.attr("disabled", true);
+            }
+        }
+
+        if (stringPathName == '/cns'){
+            $preview.attr("disabled", true);
+            $cns.attr("disabled", true);
+            $home.attr("disabled", true);
+        }
+        if (stringPathName == '/camera/wait'){
+            $preview.attr("disabled", true);
+            $cns.attr("disabled", true);
+            $home.attr("disabled", true);
+        }
+        if ($space > 50) $green.show();
+        if ($space < 50)
+        {
+            $red.show()
+            $preview.attr("disabled", true);
+            $cns.attr("disabled", true);
+        }
+    })
+
+
+
+</script>
+

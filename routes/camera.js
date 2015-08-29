@@ -1,29 +1,62 @@
 var express = require('express');
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
 var router = express.Router();
-var camera=require('../node_modules/Camera/cameraApi');
-var ok;
-
+var camera = require('../node_modules/Camera/cameraApi');
+var ok = 0;
 
 /* GET camera page. */
-router.get('/', function(req, res, next){
-    ok = camera.one()
-    res.render('wait',{title: 'SnapIt-Hw', time: '5'});
+
+router.get('/', function (req, res, next) {
+    var data = require('../camera.json');
+    res.render('form', {title: 'Choose setup',body:1, data: data, space: res.freespace});
 });
 
-router.get('/p', function(req, res, next){
-    console.log(ok)
-    if (ok != 0) {
-        var image=ok
-        res.render('index',{title: 'SnapIt-Hw', body: 'The Photo', ender: "This page control the camera",image: image});
-    }else{
-        res.render('index',{title: 'SnapIt-Hw', body: 'ERROR', ender: "This page control the camera",image: ""});
-    }
-    ok=0;
+
+router.post('/wait', function (req, res, next) {
+    var flash = req.body.flash;
+    function check(cb) {
+        if (flash != 'on' && flash != 'off') res.redirect('/camera/')
+        if (flash == 'on')
+        {
+            flash = '1'
+            cb()
+        }
+        else{ if (flash == 'off') {
+            flash = '0'
+            cb()
+        }
+    }}
+    check(function(){
+        camera.one(flash, function (impath) {
+        console.log("ready");
+        ok = impath;
+        eventEmitter.emit("ready")
+    });
+    res.render('wait', {title: 'Shooting Preview',body: 1, time: '5'});
+})});
+
+router.get('/p', function (req, res, next) {
+    var io = req.io;
+    res.render('preview', {
+        title: 'Preview',
+        body: 1,
+        ender: "By Shaul Badusa",
+    });
+    io.on("connection", function (socket) {
+        console.log("Socket Connect");
+        eventEmitter.on("ready", function () {
+            console.log("emit");
+            console.log(ok);
+            socket.emit('finish-pics', ok);
+        });
+    });
 });
 
-router.get('/download', function(req, res){
-    var file='C:/Users/shaul/WebstormProjects/SnapIt/public/images/1.jpg'
-    res.download(file); // Set disposition and send it.
+router.get('/download', function (req, res) {
+    var file = '/home/pi/public/' + ok.toString()
+    res.download(file);
 });
+
 
 module.exports = router;

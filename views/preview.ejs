@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <div class="header_comp">
+        <% include templates/header.ejs %>
+    </div>
+    <title><%= title %></title>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css'/>
+</head>
+<body>
+<div class="wait_cns">
+    <h1>Finish - Loading pics</h1>
+    <img class="center" src="/gif/loading_spinner.gif" />
+</div>
+<div class="index" style="display: none">
+    <h2><%= title %></h2>
+    <div class="imy">
+        <div id="chan">
+        </div>
+    </div>
+</div>
+<div class="ender">
+    <p><%= ender %></p>
+</div>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    jQuery(function ($)
+    {
+        var socket = io.connect();
+        var $ready = $('#chan');
+        var $wait = $('.wait_cns');
+        var $pics = $('.index');
+        $(window).load(function(){
+            function change(){
+                $wait.hide()
+                $pics.show()
+            }
+            setTimeout(change,2000)
+        })
+        function socketing(cb){socket.on('finish-pics', function (ok) {
+            $ready.append('<img id="preview" src="' + ok + '"/>');
+            $ready.append('<p></p>');
+            $ready.append( '<a href="/camera/download"><input type="button" value="Download photo"/></a>');
+            cb()
+        })}
+        socketing(function(){
+            socket.disconnect();
+            })
+
+    })
+
+
+
+</script>
+</body>
+</html>

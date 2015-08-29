@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SnapIt.iml" filepath="$PROJECT_DIR$/.idea/SnapIt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Snapit.iml" filepath="$PROJECT_DIR$/.idea/Snapit.iml" />
     </modules>
   </component>
 </project>
