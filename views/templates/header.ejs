@@ -2,12 +2,12 @@
 
 
 <div id="logo">
-  <h1>  SnapIt - HW </h1>
+    <a href="/home" id="home" title="Home"><h1>  SnapIt - HW </h1></a>
 </div>
 <div class="header">
 <span id="logout"><a href="/logout"  onclick="myFunction(); return false" >Logout</a> <b>/</b>
 <a href="/shutdown"  onclick="shut(); return false">Shutdown</a><br />
-    <table style="color: rgba(255, 254, 218, 0.78); margin-top: 10px">
+    <table style="color: rgba(255, 254, 218, 0.78); margin-top: 15px">
         <tr>
             <td>Status:</td>
             <td>
@@ -24,10 +24,8 @@
         </tr>
     </table>
 </span>
-<div class="home_b">
-    <p><a href="/home" title="Home"><input id="home" type="button"  value="Home"/></a></p></div>
-<a href="/camera" title="One Shot"><input id="preview" type="button" value="Preview"/></a>
-<a href="/cns" title="Full session"><input id="cns" type="button" value="Click And Shoot"/></a> <br />
+<a href="/camera" title="One Shot"><input class="button" id="preview" type="button" value="Preview"/></a>
+<a href="/cns" title="Full session"><input class="button" id="cns" type="button" value="SnapIt"/></a> <br />
 </div>
 <hr />
 <script>
@@ -79,12 +77,12 @@
         if (stringPathName == '/cns'){
             $preview.attr("disabled", true);
             $cns.attr("disabled", true);
-            $home.attr("disabled", true);
+            $home.attr("href", '#');
         }
         if (stringPathName == '/camera/wait'){
             $preview.attr("disabled", true);
             $cns.attr("disabled", true);
-            $home.attr("disabled", true);
+            $home.attr("href", '#');
         }
         if ($space > 50) $green.show();
         if ($space < 50)

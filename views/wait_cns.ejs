@@ -2,26 +2,35 @@
 <html>
 <head>
     <title><%= title %></title>
-    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css'/>
 </head>
 <body>
 <div class="header_comp">
     <% include templates/header.ejs %>
 </div>
 <div class="wait_cns">
-<h1><%= title %></h1>
-<img class="center" src="/gif/loading_spinner.gif" />
+    <h1><%= title %></h1>
+    <img class="center" src="/gif/loading_spinner.gif"/>
 </div>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
-    jQuery(function ($)
-    {
+    jQuery(function ($) {
         var socket = io.connect();
 
-        socket.on('finish-pics', function () {
-            document.location.href = "/cns/p"
+        function socketing(cb) {
+            socket.on('finish-pics', function () {
+                        document.location.href = "/cns/p"
+                        cb()
+                    }
+            )
+        }
+
+        socketing(function () {
+            socket.disconnect();
+            console.log("Socket Close")
         })
+
     })
 </script>
 </body>
